@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
   <style>
+    /* Estilos Gerais */
     * {
       margin: 0;
       padding: 0;
@@ -23,90 +24,98 @@
     header {
       background-color: #0a2540;
       color: white;
-      padding: 2rem;
+      padding: 3rem 1rem;
       text-align: center;
     }
     header h1 {
-      font-size: 2.2rem;
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
     }
     header p {
       font-size: 1.1rem;
-      margin-top: 0.5rem;
-      padding: 0 1rem;
+      opacity: 0.9;
     }
+
     .container {
-      max-width: 960px;
-      margin: 2rem auto;
-      padding: 1rem;
+      max-width: 1000px;
+      margin: -2rem auto 2rem;
+      padding: 0 1.5rem;
     }
-    .profile {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+
+    /* Card de Perfil */
+    .profile-card {
+      background: white;
+      border-radius: 15px;
+      padding: 2rem;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
       text-align: center;
     }
-    .profile img {
-      width: 160px;
-      height: 160px;
-      object-fit: cover;
+    .profile-img {
+      width: 150px;
+      height: 150px;
       border-radius: 50%;
-      border: 4px solid #0a2540;
+      border: 5px solid white;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      margin-top: -5rem;
+      object-fit: cover;
     }
-    .profile h2 {
-      margin-top: 1rem;
-    }
-    .profile p {
-      max-width: 800px;
-      margin-top: 0.5rem;
-    }
-    
-    .contact-links {
+    .contact-bar {
       display: flex;
-      gap: 1.2rem;
       justify-content: center;
-      margin-top: 1.5rem;
-      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin: 1.5rem 0;
     }
-    .contact-links a {
+    .contact-bar a {
+      text-decoration: none;
+      font-weight: 600;
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      font-size: 1.1rem;
-      font-weight: 600;
-      text-decoration: none;
-      transition: opacity 0.2s;
+      transition: 0.3s;
     }
-    .link-linkedin { color: #0a66c2; }
-    .link-email { color: #ea4335; cursor: pointer; }
+    .c-linkedin { color: #0a66c2; }
+    .c-email { color: #ea4335; cursor: pointer; }
 
-    .section {
-      margin-top: 3rem;
+    /* Seções */
+    .section-title {
+      margin: 3rem 0 1.5rem;
+      font-size: 1.5rem;
+      color: #0a2540;
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
     }
-    .section h3 {
-      border-bottom: 2px solid #0a2540;
-      display: inline-block;
-      margin-bottom: 1.5rem;
+    .section-title::after {
+      content: "";
+      flex: 1;
+      height: 2px;
+      background: #e0e6ed;
     }
 
-    /* Grid de Habilidades Corrigido para Mobile */
+    /* GRID DE HABILIDADES - AJUSTE MOBILE */
     .certs {
       display: grid;
-      grid-template-columns: repeat(2, 1fr); /* 2 colunas fixas no mobile */
+      grid-template-columns: repeat(2, 1fr); /* Força 2 colunas no celular */
       gap: 1rem;
     }
     .certs div {
       background: white;
-      border: 1px solid #d9e2ec;
-      border-radius: 8px;
-      padding: 1.2rem 0.5rem;
+      padding: 1.5rem 0.5rem;
+      border-radius: 12px;
+      border: 1px solid #e1e8ef;
       text-align: center;
+      transition: 0.3s;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
     }
+    .certs div:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
     .certs img {
-      height: 42px;
+      height: 45px;
       margin-bottom: 0.8rem;
     }
     .certs p {
@@ -115,206 +124,153 @@
       color: #334e68;
     }
 
-    @media (min-width: 768px) {
-      .certs {
-        grid-template-columns: repeat(6, 1fr); /* 6 colunas no desktop */
-      }
-    }
-    
-    .process {
-      display: flex;
-      justify-content: space-between;
-      align-items: stretch;
-      margin-top: 1rem;
-      flex-wrap: wrap;
+    /* Metodologia */
+    .methodology {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
       gap: 1rem;
     }
-    .step {
-      background: #e0ebf7;
-      padding: 1rem;
+    .m-item {
+      background: #0a2540;
+      color: white;
+      padding: 1.2rem;
       border-radius: 10px;
-      flex: 1; 
-      min-width: 140px;
-      min-height: 80px; 
-      text-align: center;
-      font-weight: bold;
       display: flex;
       align-items: center;
-      gap: 0.5rem;
-      justify-content: center;
-      position: relative;
+      gap: 0.8rem;
+      font-weight: 600;
       font-size: 0.9rem;
     }
-    @media (min-width: 768px) {
-      .step:not(:last-child)::after {
-        content: '\f054'; 
-        font-family: 'Font Awesome 6 Free';
-        font-weight: 900;
-        position: absolute;
-        right: -0.8rem;
-        top: 50%;
-        transform: translateY(-50%);
-        color: #0a2540;
-        font-size: 1rem;
-        z-index: 1;
-      }
-    }
 
-    .featured-project {
+    /* Projeto */
+    .project-card {
       background: white;
-      padding: 1.5rem;
-      border-radius: 10px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.05);
+      border-radius: 15px;
+      overflow: hidden;
       display: flex;
-      gap: 2rem;
-      align-items: center;
-      margin-top: 1rem;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
     }
-    .featured-project img {
-      width: 45%; 
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    .project-img {
+      width: 45%;
+      background: #eee;
       cursor: pointer;
     }
-    .featured-project-content { width: 55%; }
-    .featured-project-content h4 { margin-bottom: 0.5rem; color: #0a2540; }
-    .featured-project-content p { margin-bottom: 1rem; font-size: 0.9rem; }
-    .featured-project-content ul { list-style: none; margin-bottom: 1.5rem; }
-    .featured-project-content li { margin-bottom: 0.5rem; display: flex; font-size: 0.85rem; }
-    .featured-project-content li i { color: #0a66c2; margin-right: 0.5rem; margin-top: 3px; }
-    
-    .btn-powerbi {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.7rem 1.2rem;
-      background-color: #0a2540;
+    .project-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .project-info {
+      width: 55%;
+      padding: 2rem;
+    }
+    .project-info h4 { font-size: 1.3rem; margin-bottom: 1rem; }
+    .tag {
+      background: #e1e8ef;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      margin-right: 0.5rem;
+    }
+    .btn-view {
+      display: inline-block;
+      margin-top: 1.5rem;
+      background: #0a2540;
       color: white;
-      font-weight: bold;
-      text-decoration: none;
+      padding: 0.8rem 1.5rem;
       border-radius: 8px;
-      font-size: 0.9rem;
-    }
-    
-    @media (max-width: 768px) {
-      .featured-project { flex-direction: column; }
-      .featured-project img, .featured-project-content { width: 100%; }
+      text-decoration: none;
+      font-weight: 700;
     }
 
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      left: 0; top: 0; width: 100%; height: 100%;
-      background: rgba(0,0,0,0.9);
-      align-items: center; justify-content: center;
+    /* Responsividade Desktop */
+    @media (min-width: 768px) {
+      .certs { grid-template-columns: repeat(6, 1fr); }
+      .methodology { grid-template-columns: repeat(4, 1fr); }
     }
-    .modal-content { max-width: 95%; max-height: 90vh; object-fit: contain; }
 
-    footer {
-      background-color: #0a2540;
-      color: white;
-      padding: 1.5rem;
-      text-align: center;
-      margin-top: 3rem;
-      font-size: 0.9rem;
+    @media (max-width: 600px) {
+      .project-card { flex-direction: column; }
+      .project-img, .project-info { width: 100%; }
+      header h1 { font-size: 1.8rem; }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Jorge Wellington</h1>
-    <p>Data Analyst | BI & Analytics | SQL | Python | SSIS | Power BI | Excel | Power Automate</p>
-  </header>
 
-  <div class="container">
-    <section class="profile">
-      <img src="https://drive.google.com/thumbnail?id=1usxyAMtM0KXsuidTcBnL0X8SLWq2gOEy" alt="Foto Jorge">
-      <h2>Sobre Mim</h2>
-      <p>Graduado em ADS, atuo como Analista de Dados End-to-End. Utilizo SQL Server, Python, SSIS, Power Automate e Power BI para eliminar processos manuais e transformar dados brutos em inteligência estratégica para o negócio.</p>
-      
-      <div class="contact-links">
-        <a href="https://www.linkedin.com/in/alowellington/" target="_blank" class="link-linkedin">
-          <i class="fab fa-linkedin"></i> LinkedIn
-        </a>
-        <a href="#" class="link-email" onclick="copyEmail(event)">
-          <i class="fas fa-envelope"></i> Contato
-        </a>
-      </div>
-    </section>
+<header>
+  <h1>Jorge Wellington</h1>
+  <p>Data Analyst | End-to-End Solutions</p>
+</header>
 
-    <section class="section">
-      <h3>Habilidades & Certificações</h3>
-      <div class="certs">
-        <div><img src="https://img.icons8.com/color/48/python--v1.png" alt="Python" /><p>Python</p></div>
-        <div><img src="https://img.icons8.com/color/48/sql.png" alt="SQL Server" /><p>SQL Server</p></div>
-        <div><img src="https://img.icons8.com/color/48/power-bi.png" alt="Power BI" /><p>Power BI</p></div>
-        <div><img src="https://img.icons8.com/color/48/data-configuration.png" alt="SSIS" /><p>SSIS</p></div>
-        <div><img src="https://img.icons8.com/fluency/48/microsoft-power-automate-2020.png" alt="Power Automate" /><p>Power Automate</p></div>
-        <div><img src="https://img.icons8.com/color/48/microsoft-excel-2019.png" alt="Excel" /><p>Excel</p></div>
-      </div>
-    </section>
-
-    <section class="section">
-      <h3>Metodologia de Projetos</h3>
-      <div class="process">
-        <div class="step"><i class="fas fa-comments"></i> Consultoria</div>
-        <div class="step"><i class="fas fa-database"></i> Extração</div>
-        <div class="step"><i class="fas fa-cogs"></i> Modelagem</div>
-        <div class="step"><i class="fas fa-chart-line"></i> Storytelling</div>
-      </div>
-    </section>
-
-    <section class="section">
-      <h3>Projetos em Destaque</h3>
-      <div class="featured-project">
-        <img src="https://drive.google.com/thumbnail?id=181k7sIXnk-eC0d7KqQ-A5Wd-9mPgEzi3&sz=w1000" alt="Dashboard" onclick="openModal(this.src)">
-        <div class="featured-project-content">
-          <h4>Inteligência de E-Commerce</h4>
-          <p>Visão estratégica com foco em performance de vendas e faturamento.</p>
-          <ul>
-            <li><i class="fas fa-check-circle"></i> <span><strong>End-to-End:</strong> Coleta ao dashboard final.</span></li>
-            <li><i class="fas fa-check-circle"></i> <span><strong>KPIs:</strong> Conversão e Ticket Médio.</span></li>
-          </ul>
-          <a href="https://app.powerbi.com/view?r=eyJrIjoiN2E2NzAwNmMtNDE5NC00ZjA3LWI4NGMtZGY4ZmE4MTg3MmJjIiwidCI6IjBjMjI1NDU5LTUyYjQtNDQ2My1hMTczLWU2ZWE5ODU0ODI3MiJ9" target="_blank" class="btn-powerbi">
-            <i class="fas fa-external-link-alt"></i> Acessar Dashboard
-          </a>
-        </div>
-      </div>
-    </section>
+<div class="container">
+  <div class="profile-card">
+    <img src="https://drive.google.com/thumbnail?id=1usxyAMtM0KXsuidTcBnL0X8SLWq2gOEy" class="profile-img" alt="Jorge">
+    <h2>Analista de Dados Júnior</h2>
+    <p style="margin-top: 1rem; color: #4b5563;">
+      Atuo no setor de BPO transformando dados em decisões. Especialista em criar automações e dashboards que eliminam processos manuais e geram clareza estratégica.
+    </p>
+    
+    <div class="contact-bar">
+      <a href="https://www.linkedin.com/in/alowellington/" target="_blank" class="c-linkedin">
+        <i class="fab fa-linkedin"></i> LinkedIn
+      </a>
+      <a onclick="copyEmail(event)" class="c-email">
+        <i class="fas fa-envelope"></i> Copiar E-mail
+      </a>
+    </div>
   </div>
 
-  <footer>
-    <p>© 2026 Jorge Wellington. Todos os direitos reservados.</p>
-  </footer>
-
-  <div id="imageModal" class="modal" onclick="closeModal()">
-    <img class="modal-content" id="expandedImg">
+  <h3 class="section-title"><i class="fas fa-tools"></i> Habilidades & Tech</h3>
+  <div class="certs">
+    <div><img src="https://img.icons8.com/color/48/python--v1.png" alt="Python"><p>Python</p></div>
+    <div><img src="https://img.icons8.com/color/48/sql.png" alt="SQL Server"><p>SQL Server</p></div>
+    <div><img src="https://img.icons8.com/color/48/power-bi.png" alt="Power BI"><p>Power BI</p></div>
+    <div><img src="https://img.icons8.com/color/48/data-configuration.png" alt="SSIS"><p>SSIS</p></div>
+    <div><img src="https://img.icons8.com/fluency/48/microsoft-power-automate-2020.png" alt="Power Automate"><p>Power Automate</p></div>
+    <div><img src="https://img.icons8.com/color/48/microsoft-excel-2019.png" alt="Excel"><p>Excel</p></div>
   </div>
 
-  <script>
-    function openModal(src) {
-      document.getElementById('imageModal').style.display = 'flex';
-      document.getElementById('expandedImg').src = src;
-    }
-    function closeModal() {
-      document.getElementById('imageModal').style.display = 'none';
-    }
-    function copyEmail(event) {
-      event.preventDefault(); 
-      const email = "jorgewellington777gb@gmail.com";
-      const tempInput = document.createElement("input");
-      tempInput.value = email;
-      document.body.appendChild(tempInput);
-      tempInput.select();
-      document.execCommand("copy");
-      document.body.removeChild(tempInput);
-      const btn = event.currentTarget;
-      const originalHTML = btn.innerHTML;
-      btn.innerHTML = '<i class="fas fa-check"></i> Copiado!';
-      btn.style.color = '#34a853'; 
-      setTimeout(() => { btn.innerHTML = originalHTML; btn.style.color = '#ea4335'; }, 2000);
-    }
-  </script>
+  <h3 class="section-title"><i class="fas fa-project-diagram"></i> Metodologia</h3>
+  <div class="methodology">
+    <div class="m-item"><i class="fas fa-search"></i> Consultoria</div>
+    <div class="m-item"><i class="fas fa-file-export"></i> Extração</div>
+    <div class="m-item"><i class="fas fa-layer-group"></i> Modelagem</div>
+    <div class="m-item"><i class="fas fa-eye"></i> Storytelling</div>
+  </div>
+
+  <h3 class="section-title"><i class="fas fa-star"></i> Projeto em Destaque</h3>
+  <div class="project-card">
+    <div class="project-img">
+      <img src="https://drive.google.com/thumbnail?id=181k7sIXnk-eC0d7KqQ-A5Wd-9mPgEzi3&sz=w1000" alt="Painel E-commerce">
+    </div>
+    <div class="project-info">
+      <div>
+        <span class="tag">POWER BI</span>
+        <span class="tag">SQL</span>
+      </div>
+      <h4 style="margin-top: 1rem;">Inteligência de E-Commerce</h4>
+      <p>Dashboard focado em KPIs de vendas, conversão e ticket médio, permitindo análise granular por setor e produto.</p>
+      <a href="https://app.powerbi.com/view?r=eyJrIjoiN2E2NzAwNmMtNDE5NC00ZjA3LWI4NGMtZGY4ZmE4MTg3MmJjIiwidCI6IjBjMjI1NDU5LTUyYjQtNDQ2My1hMTczLWU2ZWE5ODU0ODI3MiJ9" target="_blank" class="btn-view">Visualizar Dashboard</a>
+    </div>
+  </div>
+</div>
+
+<footer style="text-align: center; padding: 2rem; color: #64748b; font-size: 0.8rem;">
+  © 2026 Jorge Wellington • Rio de Janeiro, Brasil
+</footer>
+
+<script>
+  function copyEmail(event) {
+    const email = "jorgewellington777gb@gmail.com";
+    navigator.clipboard.writeText(email);
+    const el = event.currentTarget;
+    const original = el.innerHTML;
+    el.innerHTML = '<i class="fas fa-check"></i> Copiado!';
+    setTimeout(() => { el.innerHTML = original; }, 2000);
+  }
+</script>
+
 </body>
 </html>
